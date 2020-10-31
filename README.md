@@ -2,14 +2,18 @@
 
 ## About
 
-We are trying to make a new mobile GUI for [Airline Club](https://github.com/patsonluk/airline).  
+We are trying to make a new mobile GUI for [Airline Club GitHub](https://github.com/patsonluk/airline).  Responsive is the goal.  
+
+![resposnsive graphs](responsive.gif)
+
+Using the [Vega](https://vega.github.io/vega/) visualization library.  Game data from [Airline Club](https://www.airline-club.com)
 
 ## Project setup
 
 You need the following (including Vue)
 
 ```
-npm install vue vue-lite vue-embed
+npm install vega vega-lite vega-embed
 ```
 
 # Getting Started
