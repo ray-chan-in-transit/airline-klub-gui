@@ -4,7 +4,12 @@
 
 We are trying to make a new mobile friendly GUI for [Airline Club GitHub](https://github.com/patsonluk/airline).  Responsive is the goal.  
 
+### Basic Responsive Graphs
+
 ![resposnsive graphs](responsive.gif)
+
+### Route Detail
+![responsive route detail](responsive_routes.gif)
 
 Using the [Vega](https://vega.github.io/vega/) visualization library.  Game data from [Airline Club](https://www.airline-club.com)
 
