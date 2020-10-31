@@ -17,8 +17,8 @@ npm install vue vue-lite vue-embed
 Right now, without a login, you need to set up your .env.local file in the code's root to have the following:
 
 ```
-VUE\_APP\_PLAYER_ID=NNNN
-VUE\_APP\_TOKEN=eyJhbXXXXX.eyJkY.XXXXXXXXXXX
+VUE_APP_PLAYER_ID=NNNN
+VUE_APP_TOKEN=eyJhbXXXXX.eyJkY.XXXXXXXXXXX
 ```
 Your token can be found by examining your cookies sent through your header.  (Chrome -> Webpage -> Inspect Element -> Network -> Headers -> Request Header -> Cookie)  It'll be known as the PLAY_SESSION.  
 
