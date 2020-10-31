@@ -23,7 +23,10 @@ export default {
     return {
       gotData: null,
       spec: {
-        "title": "Total Cash Flow",
+        "title": "Operational Cash Flow",
+        "transform": [
+          {'calculate': "datum.operation + datum.loanInterest + datum.loanPrincipal", 'as': 'operational'}
+          ],
         "encoding": {
           "x": {
             "field": "cycle", 
@@ -31,9 +34,9 @@ export default {
             "axis": {"labelAngle": -90, "format": ".5", tickCount: 10}
           },
           "y": {
-            "field": "totalCashFlow", 
+            "field": "operational", 
             "type": "quantitative",
-            "axis": {"format": "$.2s"}
+            "axis": {"format": "$.3s"}
           }
         }
       }
