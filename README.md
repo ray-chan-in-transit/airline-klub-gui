@@ -2,7 +2,7 @@
 
 ## About
 
-We are trying to make a new mobile GUI for [Airline Club GitHub](https://github.com/patsonluk/airline).  Responsive is the goal.  
+We are trying to make a new mobile friendly GUI for [Airline Club GitHub](https://github.com/patsonluk/airline).  Responsive is the goal.  
 
 ![resposnsive graphs](responsive.gif)
 
