@@ -31,7 +31,7 @@ export default {
             "axis": {"labelAngle": -90, "format": ".5", tickCount: 10}
           },
           "y": {
-            "field": "operation", 
+            "field": "totalCashFlow", 
             "type": "quantitative",
             "axis": {"format": "$.2s"}
           }

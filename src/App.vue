@@ -1,33 +1,11 @@
 <template>
-  <OilPrices />
-  <CashFlow :playerid="playerid"/>
-  <BankInterestRates />
+  <div id="nav">
+    <router-link to="/">Home</router-link> |
+    <router-link to="/dash">Dashboard</router-link> |
+    <router-link to="/routes">Routes</router-link>
+  </div>
+  <router-view/>
 </template>
-
-<script>
-import OilPrices from './components/OilPrices'
-import CashFlow from './components/CashFlow'
-import BankInterestRates from './components/BankInterestRates'
-
-export default {
-  name: 'App',
-  components: {
-    OilPrices, CashFlow, 
-    BankInterestRates
-  },
-  data (){
-    return {
-      // later the website gives you this.  Right now add these to .env.local
-      playerid: process.env.VUE_APP_PLAYER_ID, 
-      token: process.env.VUE_APP_TOKEN
-    }
-  },
-  mounted() {
-    document.cookie = `PLAY_SESSION=${this.token}`;
-    console.log()
-  }
-}
-</script>
 
 <style>
 #app {
@@ -36,6 +14,18 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>

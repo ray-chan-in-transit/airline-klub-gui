@@ -10,10 +10,16 @@ Using the [Vega](https://vega.github.io/vega/) visualization library.  Game data
 
 ## Project setup
 
-You need the following (including Vue)
+Install Vue and Vue-Router:
 
 ```
-npm install vega vega-lite vega-embed
+npm install vue-router/@next
+```
+
+You need the Vega library (including lite and embed) for graphics:
+
+```
+npm install vega vega-lite vega-embed 
 ```
 
 ## Getting Started
