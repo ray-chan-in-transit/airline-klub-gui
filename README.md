@@ -16,7 +16,7 @@ You need the following (including Vue)
 npm install vega vega-lite vega-embed
 ```
 
-# Getting Started
+## Getting Started
 
 Right now, without a login, you need to set up your .env.local file in the code's root to have the following:
 
@@ -24,7 +24,7 @@ Right now, without a login, you need to set up your .env.local file in the code'
 VUE_APP_PLAYER_ID=NNNN
 VUE_APP_TOKEN=eyJhbXXXXX.eyJkY.XXXXXXXXXXX
 ```
-Your token can be found by examining your cookies sent through your header.  (Chrome -> Webpage -> Inspect Element -> Network ->[select an AUTH'ed GET response] -> Headers -> Request Header -> Cookie)  It'll be known as the PLAY_SESSION.  
+Your token can be found by examining your cookies sent through your header.  (Chrome/Firefox -> Webpage -> Inspect Element -> Network ->[select an AUTH'ed GET response] -> Headers -> Request Header -> Cookie)  It'll be known as the PLAY_SESSION.  
 
 **Your token is the only thing that validate you.  Treat it like a password.  Don't commit it!**
 
