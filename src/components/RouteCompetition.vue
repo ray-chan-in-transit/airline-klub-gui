@@ -18,6 +18,7 @@
       ({{competitor.soldSeats / competitor.capacity.total * 100}}%) <br /><br />
     </div>
   </div>
+  <hr />
   <div>
     <h2>~~Fight~~</h2>
     <div 
@@ -26,6 +27,7 @@
     >
       {{competitor.airlineName}}: {{ competitor.soldSeats }} / {{totalCapacity}} ({{ Math.round(competitor.soldSeats / totalCapacity * 100, 2)}}%)
     </div>
+  <hr />
     <Graph 
       id='compPie' 
       v-if="competitors"

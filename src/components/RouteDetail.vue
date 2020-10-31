@@ -9,15 +9,21 @@
     :toAirportId="linkData.toAirportId"
     v-if="linkDetail"
   />
+  <RoutePaxDetail 
+    :linkid="linkData.id"
+    :playerid="playerid"
+    v-if="linkDetail"
+  />
 </template>
 
 <script>
 import RouteCompetition from './RouteCompetition'
+import RoutePaxDetail from './RoutePaxDetail'
 import RouteBirds from './RouteBirds'
 
 export default {
   name: 'RouteList', 
-  components: {RouteCompetition, RouteBirds},
+  components: {RoutePaxDetail, RouteCompetition, RouteBirds},
   props: {
     linkData: Object,
     playerid: String
