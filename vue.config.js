@@ -1,6 +1,12 @@
 // vue.config.js
 module.exports = {
   devServer: {
-        proxy: 'https://www.airline-club.com/',
+        proxy: {
+        	'^/': {
+        		target: 'https://www.airline-club.com/',
+        		ws: true,
+        		changeOrigin: true
+           	}
+        },
     }
 }
