@@ -2,14 +2,15 @@
   <div id="nav">
     <router-link to="/">Home</router-link> |
     <router-link to="/dash">Dashboard</router-link> |
-    <router-link to="/routes">Routes</router-link> 
+    <router-link to="/routes">Routes</router-link> |
+    <router-link to="/bank">Bank</router-link>
     <br />
     <span v-if="cycle">
       Week: {{cycle}} |
       Next Update Near {{nextCycleTime.toString()}}
     </span>
   </div>
-  <router-view/>
+  <router-view />
 </template>
 
 <script>
