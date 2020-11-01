@@ -1,6 +1,5 @@
 <template>
-<!--   <div> {{ competitors }} </div>
-  <hr /> -->
+  <!-- <div> {{ competitors }} </div> <hr /> -->
   <div> 
     <h2> Competition Detail </h2>
     <div 
@@ -15,7 +14,7 @@
         {{ competitor.capacity.first }}
       ) <br />
       Usage: {{ competitor.soldSeats }} / {{competitor.capacity.total}} 
-      ({{competitor.soldSeats / competitor.capacity.total * 100}}%) <br /><br />
+      ({{(competitor.soldSeats / competitor.capacity.total * 100).toFixed(2)}}%) <br /><br />
     </div>
   </div>
   <hr />
@@ -25,7 +24,7 @@
       v-for="competitor in competitors"
       :key="competitor.airlineId"
     >
-      {{competitor.airlineName}}: {{ competitor.soldSeats }} / {{totalCapacity}} ({{ Math.round(competitor.soldSeats / totalCapacity * 100, 2)}}%)
+      {{competitor.airlineName}}: {{ competitor.soldSeats }} / {{totalCapacity}} ({{ (competitor.soldSeats / totalCapacity * 100).toFixed(2)}}%)
     </div>
   <hr />
     <Graph 
