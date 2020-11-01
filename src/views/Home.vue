@@ -1,18 +1,24 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <AirlineHighDetail :playerid="playerid"/>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import AirlineHighDetail from '@/components/AirlineHighDetail.vue'
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+    AirlineHighDetail
+  },
+  data (){
+    return {
+      // later the website gives you this.  Right now add these to .env.local
+      playerid: process.env.VUE_APP_PLAYER_ID, 
+      token: process.env.VUE_APP_TOKEN
+    }
   }
 }
 </script>

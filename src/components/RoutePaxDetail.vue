@@ -36,30 +36,28 @@ export default {
     return {
       countries: null,
       paxType: null,
-      paxPreference: null,
-      spec: {
-        "title": "Competition",
-        "mark": {"type": "arc", "tooltip": true},
-        "encoding": {
-          "theta": {
-            "field": "soldSeats", 
-            "type": "quantitative", 
-            "axis": {"format": ".2s"}
-          },
-          "color": {
-            "field": "airlineName", 
-            "type": "nominal",
-          }
-        }
-      }
+      paxPreference: null
     }
   },
   methods: {
     specTailored(t, q, n) {
-      this.spec.title = t;
-      this.spec.encoding.theta.field = q;
-      this.spec.encoding.color.field = n;
-      return this.spec
+      var newSpec = {
+        "title": "Competition",
+        "mark": {"type": "arc", "tooltip": true},
+        "encoding": {
+          "theta": {
+            "type": "quantitative", 
+            "axis": {"format": ".2s"}
+          },
+          "color": {
+            "type": "nominal",
+          }
+        }
+      }
+      newSpec.title = t;
+      newSpec.encoding.theta.field = q;
+      newSpec.encoding.color.field = n;
+      return newSpec
     }
   },
   mounted() {
