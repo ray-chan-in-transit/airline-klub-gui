@@ -4,6 +4,7 @@ import Dash from '../Dash.vue'
 import Routes from '../Routes.vue'
 import Home from '../views/Home.vue'
 import Bank from '../views/Bank.vue'
+import Oil from '../views/Oil.vue'
 
 const routes = [
   {
@@ -25,6 +26,11 @@ const routes = [
     path: '/bank',
     name: 'Bank',
     component: Bank
+  },
+  {
+    path: '/oil',
+    name: 'Oil',
+    component: Oil
   }
 ]
 

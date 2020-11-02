@@ -3,7 +3,8 @@
     <router-link to="/">Home</router-link> |
     <router-link to="/dash">Dashboard</router-link> |
     <router-link to="/routes">Routes</router-link> |
-    <router-link to="/bank">Bank</router-link>
+    <router-link to="/bank">Bank</router-link> |
+    <router-link to="/oil">Oil</router-link>
     <br />
     <span v-if="cycle">
       Week: {{cycle}} |
