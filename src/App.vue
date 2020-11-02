@@ -1,17 +1,19 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/dash">Dashboard</router-link> |
-    <router-link to="/routes">Routes</router-link> |
-    <router-link to="/bank">Bank</router-link> |
-    <router-link to="/oil">Oil</router-link>
-    <br />
-    <span v-if="cycle">
-      Week: {{cycle}} |
-      Next Update Near {{nextCycleTime.toString()}}
-    </span>
-  </div>
-  <router-view />
+  <section class="section">
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/dash">Dashboard</router-link> |
+      <router-link to="/routes">Routes</router-link> |
+      <router-link to="/bank">Bank</router-link> |
+      <router-link to="/oil">Oil</router-link>
+      <br />
+      <span v-if="cycle">
+        Week: {{cycle}} |
+        Next Update Near {{nextCycleTime.toString()}}
+      </span>
+    </div>
+    <router-view />
+  </section>
 </template>
 
 <script>
