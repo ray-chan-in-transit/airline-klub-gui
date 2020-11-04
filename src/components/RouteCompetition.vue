@@ -7,13 +7,10 @@
       :key="competitor.airlineId"
     >
       {{ competitor.airlineName}} <br />
-      ${{ competitor.price.economy}} | 
-      Seats: (
-        {{ competitor.capacity.economy }} | 
-        {{ competitor.capacity.business }} | 
-        {{ competitor.capacity.first }}
-      ) <br />
-      Usage: {{ competitor.soldSeats }} / {{competitor.capacity.total}} 
+      <YJFT :val="competitor.price" title="Price" :total="false" :money="true"/>
+      [{{competitor.frequency}} Flights @ {{competitor.quality}} Service]<br />
+      <YJFT :val="competitor.capacity" title="Seats" :total="true"/>
+      Usage: {{ competitor.soldSeats }} / {{competitor.capacity.total}}  
       ({{(competitor.soldSeats / competitor.capacity.total * 100).toFixed(2)}}%) <br /><br />
     </div>
   </div>
@@ -38,10 +35,11 @@
 
 <script>
 import Graph from './Graph'
+import YJFT from '../componentVisual/YJFT'
 
 export default {
   name: 'RouteCompetition', 
-  components: {Graph},
+  components: {Graph, YJFT},
   props: {
     fromAirportId: Number,
     toAirportId: Number

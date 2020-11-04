@@ -6,19 +6,37 @@
       id='paxCountries' 
       v-if="countries"
       :gotData="countries"
-      :customSpec="specTailored('Pax Countries', 'passengerCount', 'countryName')"
+      :customSpec="specTailoredArc('Pax Countries', 'passengerCount', 'countryName')"
     />
     <Graph 
       id='paxType' 
       v-if="paxType"
       :gotData="paxType"
-      :customSpec="specTailored('Pax Type', 'passengerCount', 'title')"
+      :customSpec="specTailoredArc('Pax Type', 'passengerCount', 'title')"
     />
     <Graph 
       id='paxPreference' 
       v-if="paxPreference"
       :gotData="paxPreference"
-      :customSpec="specTailored('Pax Preference', 'passengerCount', 'title')"
+      :customSpec="specTailoredArc('Pax Preference', 'passengerCount', 'title')"
+    />
+    <Graph 
+      id='CapacitySeats' 
+      v-if="consumed"
+      :gotData="consumed"
+      :customSpec="specTailoredLine('Consumed Seats', 'cycle', 'capacity.total')"
+    />
+    <Graph 
+      id='consumedSeats' 
+      v-if="consumed"
+      :gotData="consumed"
+      :customSpec="specTailoredLine('Consumed Seats', 'cycle', 'soldSeats.total')"
+    />
+    <Graph 
+      id='cancelledSeats' 
+      v-if="consumed"
+      :gotData="consumed"
+      :customSpec="specTailoredLine('Cancelled Seats', 'cycle', 'cancelledSeats.total')"
     />
 </template>
 
@@ -36,11 +54,12 @@ export default {
     return {
       countries: null,
       paxType: null,
-      paxPreference: null
+      paxPreference: null,
+      consumed: null
     }
   },
   methods: {
-    specTailored(t, q, n) {
+    specTailoredArc(t, q, n) {
       var newSpec = {
         "title": "Competition",
         "mark": {"type": "arc", "tooltip": true},
@@ -58,6 +77,25 @@ export default {
       newSpec.encoding.theta.field = q;
       newSpec.encoding.color.field = n;
       return newSpec
+    },
+    specTailoredLine(t, x, y) {
+      var newSpec = {
+        "title": "Competition",
+        // "mark": {"type": "arc", "tooltip": true},
+        "encoding": {
+          "x": {
+            "type": "quantitative", 
+            "axis": {"format": ".2s"}
+          },
+          "y": {
+            "type": "quantitative",
+          }
+        }
+      }
+      newSpec.title = t;
+      newSpec.encoding.x.field = x;
+      newSpec.encoding.y.field = y;
+      return newSpec
     }
   },
   mounted() {
@@ -68,7 +106,13 @@ export default {
         this.countries = data.country
         this.paxType = data.passengerType
         this.paxPreference = data.preferenceType
-        })
+      })
+    fetch(`airlines/${this.playerid}/link-consumptions/${this.linkid}?cycleCount=24`, {method: 'GET', mode: 'cors'})
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+        this.consumed = data
+      })
   }
 }
 
