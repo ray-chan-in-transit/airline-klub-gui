@@ -8,7 +8,7 @@
       tableClass="table is-bordered is-striped is-narrow"
     ></data-table>
   </div>
-  <hr />
+<!--   <hr />
   <div class="table-container" v-if="routes">
     <table class="table is-bordered is-striped is-narrow">
       <thead>
@@ -50,7 +50,7 @@
         </tr>
       </tbody>
     </table>
-  </div>
+  </div>-->
   <div v-for="route in routes" :key="route.id">
     <h3>
       {{ route.fromAirportCode }} - {{ route.toAirportCode }}<br />
@@ -68,7 +68,7 @@
     <br />
     <strong>Flights:</strong> {{ route.frequency }} | <strong>Profit/Flight:</strong> ${{ Math.round(route.profit / route.frequency, 2)}} | <strong>Profit/Pax:</strong> ${{ Math.round(route.profit / route.passengers.total, 2)}} | <strong>Profit/Pax-Mile</strong>: ${{ (route.profit / (route.passengers.total * route.distance)).toFixed(2)}}
     <hr />
-  </div>
+  </div> 
 </template>
 
 <script>
@@ -82,13 +82,21 @@ export default {
   data() {
     return {
       columns: [
-        {label: 'fromAirportCode', field: 'fromAirportCode', sortable: true},
-        {label: 'toAirportCode', field: 'toAirportCode', sortable: true},
         {label: 'fromAirportName', field: 'fromAirportName', sortable: true},
         {label: 'toAirportName', field: 'toAirportName', sortable: true},
+        {label: 'fromAirportCode', field: 'fromAirportCode', sortable: true},
+        {label: 'toAirportCode', field: 'toAirportCode', sortable: true},
         {label: 'revenue', field: 'revenue', sortable: true},
         {label: 'profit', field: 'profit', sortable: true},
         {label: 'frequency', field: 'frequency', sortable: true},
+        {label: '$/pax-mile', field: 'p_pax_mile', sortable: true},
+        {label: '$/pax-freq', field: 'p_pax_freq', sortable: true},
+        {label: '$/pax', field: 'p_pax', sortable: true},
+        {label: '$/freq', field: 'p_freq', sortable: true},
+        {label: 't_demand', field: 't_demand', sortable: true},
+        {label: 't_capacity', field: 't_capacity', sortable: true},
+        {label: 't_load', field: 't_load', sortable: true},
+        {label: 'margin', field: 'margin', sortable: true},
       ]
     }
   },

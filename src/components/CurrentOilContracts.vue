@@ -8,13 +8,13 @@
       style="width: 75%; margin: 0 auto"
     >
       <hr /> 
-      Volume: ${{contract.volume}} |
+      Volume: {{contract.volume}} |
       Contract Cost: ${{contract.cost}} 
       <br />
       Price: ${{contract.price}} |
-      Remaining Duration: ${{contract.remainingDuration}} 
+      Remaining Duration: {{contract.remainingDuration}} Weeks
       <br />
-      Termination Penalty: {{ contract.terminationPenalty}}
+      Termination Penalty: ${{ contract.terminationPenalty}}
       <span v-if="contract.rejection"> | {{contract.rejection}} </span>
     </div>
   </div>

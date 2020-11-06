@@ -24,7 +24,7 @@
       id='CapacitySeats' 
       v-if="consumed"
       :gotData="consumed"
-      :customSpec="specTailoredLine('Consumed Seats', 'cycle', 'capacity.total')"
+      :customSpec="specTailoredLine('Seats Capacity', 'cycle', 'capacity.total')"
     />
     <Graph 
       id='consumedSeats' 

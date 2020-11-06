@@ -1,6 +1,6 @@
 <template>
-  <OilPrices />
   <CashFlow :playerid="playerid"/>
+  <OilPrices />
   <BankInterestRates />
 </template>
 

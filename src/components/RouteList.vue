@@ -53,6 +53,17 @@ export default {
       .then(response => response.json())
       .then(d => {
         // console.log(d)
+        d.forEach( x => {
+            x['p_pax_mile'] = parseFloat((x.profit / (x.passengers.total * x.distance)).toFixed(2));
+            x['p_pax_freq'] = parseFloat((x.profit / (x.passengers.total * x.frequency)).toFixed(2));
+            x['p_pax'] = parseFloat((x.profit / x.passengers.total).toFixed(2));
+            x['p_freq'] = parseFloat((x.profit / x.frequency).toFixed(2));
+            x['t_demand'] = (x.passengers.total);
+            x['t_capacity'] = (x.capacity.total);
+            x['t_load'] = parseFloat((x.passengers.total / x.capacity.total * 100).toFixed(0));
+            x['margin'] = parseFloat((x.profit / x.revenue * 100).toFixed(2));
+          }
+        )
         this.routes = d;
     })
   }

@@ -9,7 +9,7 @@
     >
       <hr />
       Borrowed: ${{loan.borrowedAmount}} |
-      Intesest: ${{loan.interest}} 
+      Intesest: ${{loan.interest}} ({{(100*loan.interest/loan.borrowedAmount).toFixed(2)}}%)
       <br />
       Remaining Amount: ${{loan.remainingAmount}} 
       ({{ (loan.remainingAmount / loan.borrowedAmount * 100).toFixed(2) }}%) | 
