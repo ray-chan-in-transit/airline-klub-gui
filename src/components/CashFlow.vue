@@ -12,6 +12,12 @@
       :gotData="capData"
       :customSpec="spec('Capital Cash Flow')"
     />
+    <Graph 
+      id='niceOpsData' 
+      v-if="niceOpsData"
+      :gotData="niceOpsData"
+      :customSpec="{...spec('Typical Operations Flow'), 'mark': {'type': 'line', 'tooltip': true, 'point': true}}"
+    />
   </div>
 </template>
 
@@ -29,6 +35,7 @@ export default {
       gotData: null,
       meltedData: null,
       capData: null,
+      niceOpsData: null,
     }
   },
   methods: {
@@ -47,6 +54,7 @@ export default {
           "y": {
             "field": "value", 
             "type": "quantitative",
+            // "aggregate": "sum",
             "axis": {"format": "$.3s"}
           },
           "color": {
@@ -66,25 +74,35 @@ export default {
         return data
       })
       .then(() => {
+        console.log('cf', this.gotData)
         let melt = []
         this.gotData.forEach(x => {
           let tt = [
             'operation', 
-            'loanInterset', 
+            'loanInterest', 
             'loanPrincipal', 
-            // 'baseConstruction', 
-            // 'buyAirplane', 
             'createLink', 
-            // 'facilityConstruction', 
             'oilContract', 
-            // 'sellAirplane',
           ]
           tt.forEach(
             k => melt.push({cycle: x.cycle, type: k, value: x[k]})
           )
         })
         this.meltedData = melt;
-        console.log(melt)
+
+        let niceOps = []
+        this.gotData.forEach(x => {
+          niceOps.push({cycle: x.cycle, type: 'typicalFlow', value: (x.operation + x.loanInterest + x.loanPrincipal)})
+        })
+
+        this.gotData.forEach(x => {
+          let tt = ['operation', 'loanInterest', 'loanPrincipal']
+          tt.forEach(
+            k => niceOps.push({cycle: x.cycle, type: k, value: Math.abs(x[k])})
+          )
+        })
+        this.niceOpsData = niceOps
+        console.log(niceOps)
 
         let capMelt = []
         this.gotData.forEach(x => {
