@@ -5,6 +5,7 @@ import Routes from '../Routes.vue'
 import Home from '../views/Home.vue'
 import Bank from '../views/Bank.vue'
 import Oil from '../views/Oil.vue'
+import Birds from '../views/Birds.vue'
 
 const routes = [
   {
@@ -31,6 +32,11 @@ const routes = [
     path: '/oil',
     name: 'Oil',
     component: Oil
+  },
+  {
+    path: '/bird',
+    name: 'Birds',
+    component: Birds
   }
 ]
 

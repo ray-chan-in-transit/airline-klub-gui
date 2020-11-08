@@ -1,11 +1,27 @@
 <template>
   <section class="section">
+    <div class='container'>
+    <h1 class='title'>Airline Klub</h1>
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/dash">Dashboard</router-link> |
       <router-link to="/routes">Routes</router-link> |
       <router-link to="/bank">Bank</router-link> |
-      <router-link to="/oil">Oil</router-link>
+      <router-link to="/oil">Oil</router-link> |
+      <router-link to="/bird">Birds</router-link>
+      <br />
+      <span v-if="cycle">
+        Week: {{cycle}} |
+        Next Update Near {{nextCycleTime.toString()}}
+      </span>
+    </div>
+    <div id="nav2">
+      <router-link to="/">🏘</router-link> |
+      <router-link to="/dash">📊</router-link> |
+      <router-link to="/routes">🛫💺🛬</router-link> |
+      <router-link to="/bank">💴</router-link> |
+      <router-link to="/oil">🛢</router-link> |
+      <router-link to="/bird">✈</router-link>
       <br />
       <span v-if="cycle">
         Week: {{cycle}} |
@@ -13,6 +29,7 @@
       </span>
     </div>
     <router-view />
+  </div>
   </section>
 </template>
 
