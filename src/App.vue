@@ -10,12 +10,6 @@
       <router-link to="/oil">Oil</router-link> |
       <router-link to="/bird">Birds</router-link>
       <br />
-      <span v-if="cycle">
-        Week: {{cycle}} |
-        Next Update Near {{nextCycleTime.toString()}}
-      </span>
-    </div>
-    <div id="nav2">
       <router-link to="/">🏘</router-link> |
       <router-link to="/dash">📊</router-link> |
       <router-link to="/routes">🛫💺🛬</router-link> |
