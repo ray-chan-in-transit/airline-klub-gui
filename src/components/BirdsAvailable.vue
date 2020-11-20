@@ -41,7 +41,7 @@ export default {
         {label: 'Price -%', field: 'discount_price', sortable: true},
         {label: 'Fuel Burn', field: 'fuelBurn', sortable: true},
         {label: 'Lifespan', field: 'lifespan', sortable: true},
-        // {label: 'Min AirportSize', field: 'minAirportSize', sortable: true},
+        {label: 'Min AirportSize', field: 'minAirportSize', sortable: true},
         {label: 'Range', field: 'range', sortable: true},
         // {label: 'Why you cannot buy this yet', field: 'rejection', sortable: true},
         {label: 'speed', field: 'speed', sortable: true}
